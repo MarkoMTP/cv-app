@@ -2,7 +2,7 @@ function AddWorkExp({index ,deleteWork} ) {
 
     return (
       <div className='workExpForm' id={index }>
-        <h2> Work Experience Number {index}</h2>
+        <h2> N'{index}</h2>
       <div className='form-group'>
         <label htmlFor='company'>Company</label>
         <input type='text' id='company' name='company' className='form-control' />
@@ -34,5 +34,19 @@ function AddWorkExp({index ,deleteWork} ) {
       </div>
     )
     }
+
+
+    export function AddSkills({index, deleteWork}) {
+
+      return (
+      <div className='form-group'>
+      <label htmlFor='skills'>Skill {index}</label>
+      <input type='text' id='skills' name='skills' className='form-control' placeholder='e.g. JavaScript, React, Node.js' />
+      <button type='button' className='btn btn-primary' onClick={deleteWork}>Delete Skill</button>
+
+    </div>
+      )
+    }
+
 
     export default AddWorkExp

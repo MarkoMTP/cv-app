@@ -13,4 +13,7 @@ body {
   transform: translate(100%, -50%);
   border: 1px black solid;
   width: 30%;
+  overflow: scroll;
+
+  max-height: 80%;
 }

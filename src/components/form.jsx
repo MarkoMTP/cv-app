@@ -1,20 +1,30 @@
 import { useState } from "react";
 import "../styles/workExp.css"
-import AddWorkExp from "./workExp";
+import AddWorkExp, {AddSkills} from "./workExp.jsx";
 
 
 function FormForEdit() {
 
   const [workExpForms, setWorkExpForm] = useState([])
-  
+  const [skills, setSkill] = useState([])
 
   const handleAddForm = () => {
     setWorkExpForm([...workExpForms, {id: Date.now() }]); 
   };
-
   const handleDeleteForm = (id) => {
     setWorkExpForm(workExpForms.filter((form) => form.id !== id));
   };
+
+
+  const handleAddSkill = () => {
+    setSkill([...skills, {id: Date.now()}])
+  }
+
+const handleDeleteSkill = (index) => {
+  setSkill(skills.filter((skill) => skill.id !== index))
+}
+
+
 
     return (
       <div className='formEdit'>
@@ -68,11 +78,14 @@ function FormForEdit() {
   <button type='button' className='workExpBtn' onClick={handleAddForm}>Add Work Experience</button>
          
           <h2>Skills</h2>
-          <div className='form-group'>
-            <label htmlFor='skills'>Skills</label>
-            <input type='text' id='skills' name='skills' className='form-control' placeholder='e.g. JavaScript, React, Node.js' />
-          </div>
+          {skills.map((skill, index) => (
+  <AddSkills key={skill.id} index={index + 1} deleteWork={() => handleDeleteSkill(skill.id)} />
+))}
 
+
+
+  <button type='button' className='workExpBtn' onClick={handleAddSkill}>Add skill </button>
+        
          
           <button type='submit' className='btn btn-primary'>Submit</button>
         </form>
