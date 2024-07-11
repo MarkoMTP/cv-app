@@ -10,10 +10,23 @@ body {
 
 .editSect {
   position: absolute;
-  transform: translate(100%, -50%);
+  transform: translate(10%, -50%);
   border: 1px black solid;
-  width: 30%;
+  width: 80%;
   overflow: scroll;
 
   max-height: 80%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cv {
+  border: black solid 1px;
+  width: 20%;
+  max-height: 50%;
+  margin: 3rem;
+  padding: 2rem;
 }

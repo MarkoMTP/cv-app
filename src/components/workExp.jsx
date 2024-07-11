@@ -1,4 +1,4 @@
-function AddWorkExp({index ,deleteWork} ) {
+ function AddWorkExp({index ,deleteWork} ) {
 
     return (
       <div className='workExpForm' id={index }>
