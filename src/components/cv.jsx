@@ -1,11 +1,12 @@
 import '../styles/cv.css'
 import "../styles/workExp.css"
+import { DisplayEducation } from './education.jsx';
 import { SkillDisplay } from './skillAdd.jsx';
 import { WorkExpDisplay } from './workExp.jsx';
 
 
 
-function Cv({ fullName, email, school, graduationYear, phoneNumber , degre, workExp, skills}) {
+function Cv({ fullName, email, phoneNumber , educations, workExp, skills}) {
 
     
 
@@ -18,9 +19,16 @@ function Cv({ fullName, email, school, graduationYear, phoneNumber , degre, work
         <p><strong>Phone Number:</strong> {phoneNumber}</p>
 
         <h3>Education:</h3>
-        <p><strong>School/University:</strong> {school}</p>
-        <p><strong>Graduation Year:</strong> {graduationYear}</p>
-        <p><strong>Degree:</strong> {degre}</p>
+          {educations.map((education, index) => (
+            <DisplayEducation
+            key={index}
+            index={index}
+            school={education.school}
+            degree={education.degree}
+            year={education.gradYear}
+            ></DisplayEducation>
+
+          ))}
 
         <h3>Work Experience</h3>
         {workExp.map((exp, index) => (
