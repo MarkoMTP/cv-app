@@ -1,52 +1,100 @@
- function AddWorkExp({index ,deleteWork} ) {
-
-    return (
-      <div className='workExpForm' id={index }>
-        <h2> N'{index}</h2>
-      <div className='form-group'>
-        <label htmlFor='company'>Company</label>
-        <input type='text' id='company' name='company' className='form-control' />
-      </div>
-    
-      <div className='form-group'>
-        <label htmlFor='jobTitle'>Job Title</label>
-        <input type='text' id='jobTitle' name='jobTitle' className='form-control' />
-      </div>
-    
-      <div className='form-group'>
-        <label htmlFor='jobDescription'>Job Description</label>
-        <textarea id='jobDescription' name='jobDescription' className='form-control'></textarea>
-      </div>
-    
-      <div className='form-group'>
-        <label htmlFor='startDate'>Start Date</label>
-        <input type='date' id='startDate' name='startDate' className='form-control' />
-      </div>
-    
-      <div className='form-group'>
-        <label htmlFor='endDate'>End Date</label>
-        <input type='date' id='endDate' name='endDate' className='form-control' />
-      </div>
-    
-    
-      <button type='button' className='btn btn-primary' onClick={deleteWork}>Delete Work Experience</button>
-    
-      </div>
-    )
-    }
+import React, { useState } from 'react';
 
 
-    export function AddSkills({index, deleteWork}) {
+function AddWorkExp({ index, workExperience, handleInputChange, deleteWork }) {
+  return (
+    <div className="workExpForm" id={index}>
+      <h2>Work Experience {index}</h2>
+      <div className="form-group">
+        <label htmlFor={`company-${index}`}>Company</label>
+        <input
+          type="text"
+          id={`company-${index}`}
+          name="company"
+          className="form-control"
+          value={workExperience.company}
+          onChange={handleInputChange}
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor={`jobTitle-${index}`}>Job Title</label>
+        <input
+          type="text"
+          id={`jobTitle-${index}`}
+          name="jobTitle"
+          className="form-control"
+          value={workExperience.jobTitle}
+          onChange={handleInputChange}
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor={`jobDescription-${index}`}>Job Description</label>
+        <textarea
+          id={`jobDescription-${index}`}
+          name="jobDescription"
+          className="form-control"
+          value={workExperience.jobDescription}
+          onChange={handleInputChange}
+        ></textarea>
+      </div>
+
+      <div className="form-group">
+        <label htmlFor={`startDate-${index}`}>Start Date</label>
+        <input
+          type="date"
+          id={`startDate-${index}`}
+          name="startDate"
+          className="form-control"
+          value={workExperience.startDate}
+          onChange={handleInputChange}
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor={`endDate-${index}`}>End Date</label>
+        <input
+          type="date"
+          id={`endDate-${index}`}
+          name="endDate"
+          className="form-control"
+          value={workExperience.endDate}
+          onChange={ handleInputChange}
+        />
+      </div>
+
+      <button type="button" className="btn btn-primary" onClick={deleteWork}>
+        Delete Work Experience
+      </button>
+    </div>
+  );
+}
+
+
+
+
+   export function WorkExpDisplay({index, company, jobTitle, jobDescription, start, end}) {
 
       return (
-      <div className='form-group'>
-      <label htmlFor='skills'>Skill {index}</label>
-      <input type='text' id='skills' name='skills' className='form-control' placeholder='e.g. JavaScript, React, Node.js' />
-      <button type='button' className='btn btn-primary' onClick={deleteWork}>Delete Skill</button>
-
-    </div>
+          <div>
+            <h3>{index + 1}</h3>
+              <p><strong>Company:</strong> {company}</p>
+              <p><strong>Job Title:</strong> {jobTitle}</p>
+              <p><strong>Job Description:</strong> {jobDescription}</p>
+      
+          
+              <p><strong>Start Date:</strong> {start}</p>
+              <p><strong>End Date :</strong> {end}</p>
+      
+      
+          </div>
       )
-    }
+      
+      
+      }
+      
+
 
 
     export default AddWorkExp

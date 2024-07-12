@@ -2,7 +2,8 @@ import { useState } from "react";
 import '../styles/cv.css'
 
 import "../styles/workExp.css"
-import AddWorkExp, {AddSkills} from "./workExp.jsx";
+import AddWorkExp from "./workExp.jsx";
+import { AddSkills } from "./skillAdd.jsx";
 import Cv from "./cv.jsx";
 
 
@@ -17,7 +18,7 @@ const [school, setSchool] = useState('')
 const [degre, setDegre] = useState('')
 const [gradYear, setGradYear] = useState('')
 
-const fullName = firstName + ''  + '' + lastName
+const fullName = `${firstName} ${lastName}`
 
 function handleGradYear (e) {
   setGradYear(e.target.value)
@@ -49,24 +50,45 @@ function handleLastName(e) {
 }
 
 
-
-
 //add work and skills
   const [workExpForms, setWorkExpForm] = useState([])
   const [skills, setSkill] = useState([])
 
+
+  const handleWorkExpChange = (id, field, value) => {
+    setWorkExpForm(prevForms =>
+      prevForms.map(form => form.id === id ? { ...form, [field]: value } : form)
+    );
+  }
   
+
   const handleAddForm = () => {
-    setWorkExpForm([...workExpForms, {id: Date.now() }]); 
+    setWorkExpForm([...workExpForms, {
+      id: Date.now(),
+      company: '',
+      jobTitle: '',
+      jobDescription: '',
+      startDate: '',
+      endDate: ''
+    }]);
   };
+
+  
+
   const handleDeleteForm = (id) => {
     setWorkExpForm(workExpForms.filter((form) => form.id !== id));
   };
 
+  
+  const handleSkillChange = (id, value) => {
+    setSkill(prevSkills =>
+      prevSkills.map(skill => skill.id === id ? { ...skill, value: value } : skill)
+    );
+  };
 
   const handleAddSkill = () => {
-    setSkill([...skills, {id: Date.now()}])
-  }
+    setSkill([...skills, { id: Date.now(), value: '' }]);
+  };
 
 const handleDeleteSkill = (index) => {
   setSkill(skills.filter((skill) => skill.id !== index))
@@ -116,20 +138,21 @@ const handleDeleteSkill = (index) => {
           </div>
 
   <h2>Work Experience</h2>
-  {workExpForms.map((form, index) => (
-          <AddWorkExp
-            key={form.id}
-            index={index + 1}
-            id={form.id}
-            deleteWork={() => handleDeleteForm(form.id)}
-          />
-        ))}
+   {workExpForms.map((form, index) => (
+            <AddWorkExp
+              key={form.id}
+              index={index + 1}
+              workExperience={form}
+              handleInputChange={(e) => handleWorkExpChange(form.id, e.target.name, e.target.value)}
+              deleteWork={() => handleDeleteForm(form.id)}
+            />
+          ))}
   <button type='button' className='workExpBtn' onClick={handleAddForm}>Add Work Experience</button>
          
           <h2>Skills</h2>
           {skills.map((skill, index) => (
-  <AddSkills key={skill.id} index={index + 1} deleteWork={() => handleDeleteSkill(skill.id)} />
-))}
+  <AddSkills key={skill.id} index={index + 1} skill={skill} deleteWork={() => handleDeleteSkill(skill.id)} handleInputChange={(e) => handleSkillChange(skill.id, e.target.value)}/>
+))} 
 
 
 
@@ -142,7 +165,16 @@ const handleDeleteSkill = (index) => {
 
 
       </div>
-<><Cv fullName={fullName} email={email} school={school} graduationYear={gradYear}  phoneNumber={phone} degre={degre}></Cv></>
+      <Cv
+        fullName={fullName}
+        email={email}
+        school={school}
+        graduationYear={gradYear}
+        phoneNumber={phone}
+        degre={degre}
+        workExp={workExpForms}
+        skills={skills}
+      />
      
       </div>
     );
