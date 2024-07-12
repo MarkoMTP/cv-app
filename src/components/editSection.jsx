@@ -9,7 +9,6 @@ function EditSection() {
     <div className='editSect'>
       <FormForEdit></FormForEdit>
 
-      <button type='submit' className='btn btn-primary' >Submit</button>
 
     </div>
 

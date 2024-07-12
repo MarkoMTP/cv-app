@@ -12,7 +12,17 @@ function FormForEdit() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  
+  const [isSubmitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    setSubmitted(false);
+  };
 
   const fullName = `${firstName} ${lastName}`;
 
@@ -62,95 +72,125 @@ function FormForEdit() {
     setSkill(skills.filter((skill) => skill.id !== id));
   };
 
-
-  //handlers for education 
-  const [educations, setEducation] = useState([])
+  // Handlers for education
+  const [educations, setEducation] = useState([]);
 
   const handleAddEducation = () => {
     setEducation([...educations, {
-      id: Date.now(), 
+      id: Date.now(),
       school: '',
       degree: '',
       gradYear: ''
-
-    }])
-  }
+    }]);
+  };
 
   const handleDeleteEducation = (id) => {
-    setEducation(educations.filter((education) => education.id !== id))
-  }
+    setEducation(educations.filter((education) => education.id !== id));
+  };
 
   const handleEducationChange = (id, field, value) => {
-    setEducation(prevEducations => prevEducations.map(education => education.id === id ? {...education, [field]: value} : education))
-
-
-  }
-  
-
+    setEducation(prevEducations => prevEducations.map(education => education.id === id ? { ...education, [field]: value } : education));
+  };
 
   return (
     <div className="container">
-      <div className='formEdit'>
-        <form>
-          <h2>Personal Information</h2>
-          <div className='form-group'>
-            <label htmlFor='firstName'>First Name</label>
-            <input type='text' id='firstName' name='firstName' className='form-control' onChange={(e) => handleInputChange(e, setFirstName)} />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='lastName'>Last Name</label>
-            <input type='text' id='lastName' name='lastName' className='form-control' onChange={(e) => handleInputChange(e, setLastName)} />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='email'>Email</label>
-            <input type='email' id='email' name='email' className='form-control' onChange={(e) => handleInputChange(e, setEmail)} />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='phone'>Phone Number</label>
-            <input type='tel' id='phone' name='phone' className='form-control' onChange={(e) => handleInputChange(e, setPhone)} />
-          </div>
-          <h2>Education</h2>
-
-          {educations.map((education, index) => (
-            <AddEducation
-              key={education.id}
-              index={index + 1}
-              education={education}
-              handleInputChange={(e) => handleEducationChange(education.id, e.target.name, e.target.value)}
-              deleteEducation={() => handleDeleteEducation(education.id)}
-            
-            > </AddEducation>
-          ))}
-        
-        <button type='button' className='workExpBtn' onClick={handleAddEducation}>Add Education</button>
-
-
-          <h2>Work Experience</h2>
-          {workExpForms.map((form, index) => (
-            <AddWorkExp
-              key={form.id}
-              index={index + 1}
-              workExperience={form}
-              handleInputChange={(e) => handleWorkExpChange(form.id, e.target.name, e.target.value)}
-              deleteWork={() => handleDeleteForm(form.id)}
+      {!isSubmitted ?
+        <div className='formEdit'>
+          <form>
+            <h2>Personal Information</h2>
+            <div className='form-group'>
+              <label htmlFor='firstName'>First Name</label>
+              <input
+                type='text'
+                id='firstName'
+                name='firstName'
+                className='form-control'
+                value={firstName}
+                onChange={(e) => handleInputChange(e, setFirstName)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='lastName'>Last Name</label>
+              <input
+                type='text'
+                id='lastName'
+                name='lastName'
+                className='form-control'
+                value={lastName}
+                onChange={(e) => handleInputChange(e, setLastName)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='email'>Email</label>
+              <input
+                type='email'
+                id='email'
+                name='email'
+                className='form-control'
+                value={email}
+                onChange={(e) => handleInputChange(e, setEmail)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='phone'>Phone Number</label>
+              <input
+                type='tel'
+                id='phone'
+                name='phone'
+                className='form-control'
+                value={phone}
+                onChange={(e) => handleInputChange(e, setPhone)}
+              />
+            </div>
+            <h2>Education</h2>
+            {educations.map((education, index) => (
+              <AddEducation
+                key={education.id}
+                index={index + 1}
+                education={education}
+                handleInputChange={(e) => handleEducationChange(education.id, e.target.name, e.target.value)}
+                deleteEducation={() => handleDeleteEducation(education.id)}
+              />
+            ))}
+            <button type='button' className='workExpBtn' onClick={handleAddEducation}>Add Education</button>
+            <h2>Work Experience</h2>
+            {workExpForms.map((form, index) => (
+              <AddWorkExp
+                key={form.id}
+                index={index + 1}
+                workExperience={form}
+                handleInputChange={(e) => handleWorkExpChange(form.id, e.target.name, e.target.value)}
+                deleteWork={() => handleDeleteForm(form.id)}
+              />
+            ))}
+            <button type='button' className='workExpBtn' onClick={handleAddForm}>Add Work Experience</button>
+            <h2>Skills</h2>
+            {skills.map((skill, index) => (
+              <AddSkills
+                key={skill.id}
+                index={index + 1}
+                skill={skill}
+                deleteWork={() => handleDeleteSkill(skill.id)}
+                handleInputChange={(e) => handleSkillChange(skill.id, e.target.value)}
+              />
+            ))}
+            <button type='button' className='workExpBtn' onClick={handleAddSkill}>Add skill</button>
+            <button type='button' className='workExpBtn' onClick={handleSubmit}>Submit</button>
+          </form>
+        </div>
+        : (
+          <div className='formEdit'>
+            <Cv
+              fullName={fullName}
+              email={email}
+              phoneNumber={phone}
+              educations={educations}
+              workExp={workExpForms}
+              skills={skills}
+              handleEdits={handleEdit}
             />
-          ))}
-          <button type='button' className='workExpBtn' onClick={handleAddForm}>Add Work Experience</button>
-          <h2>Skills</h2>
-          {skills.map((skill, index) => (
-            <AddSkills key={skill.id} index={index + 1} skill={skill} deleteWork={() => handleDeleteSkill(skill.id)} handleInputChange={(e) => handleSkillChange(skill.id, e.target.value)} />
-          ))}
-          <button type='button' className='workExpBtn' onClick={handleAddSkill}>Add skill</button>
-        </form>
-      </div>
-      <Cv
-        fullName={fullName}
-        email={email}
-        phoneNumber={phone}
-        educations={educations}
-        workExp={workExpForms}
-        skills={skills}
-      />
+          </div>
+        )}
     </div>
   );
 }

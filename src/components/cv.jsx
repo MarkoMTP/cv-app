@@ -6,7 +6,7 @@ import { WorkExpDisplay } from './workExp.jsx';
 
 
 
-function Cv({ fullName, email, phoneNumber , educations, workExp, skills}) {
+function Cv({ fullName, email, phoneNumber , educations, workExp, skills, handleEdits}) {
 
     
 
@@ -30,7 +30,7 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills}) {
 
           ))}
 
-        <h3>Work Experience</h3>
+        <h3>Work Experience:</h3>
         {workExp.map((exp, index) => (
         <WorkExpDisplay
           key={index}
@@ -44,10 +44,13 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills}) {
       ))}
 
 
-      <h3>Skills</h3>
+      <h3>Skills:</h3>
       {skills.map((skill, index) => (
         <SkillDisplay key={skill.id} index={index} skill={skill.value} />
       ))}
+
+
+        <button type='button' className='workExpBtn' onClick={handleEdits}>Edit</button>
 
        
       </div>
