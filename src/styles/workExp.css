@@ -5,15 +5,6 @@ body {
   width: 100vw;
 }
 
-.workExpBtn {
-  margin: 1rem;
-  background-color: antiquewhite;
-}
-
-.workExpBtn:hover {
-  background-color: rgb(147, 145, 143);
-}
-
 label {
   margin-right: 2rem;
 }
@@ -22,6 +13,67 @@ label {
   max-height: 50%;
   margin: 3rem;
   padding: 2rem;
-  width: 30%;
-  border: solid black 1px;
+  width: 60%;
+  border: solid rgb(250, 4, 4) 1px;
+}
+/* styles/cv.css */
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formEdit {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1rem;
+}
+
+button.workExpBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.workExpBtn:hover {
+  background-color: #0056b3;
+}
+
+button.btnDelete {
+  background-color: rgb(252, 127, 127);
+}
+
+button.submitBtn {
+  transform: translate(250%, -20%);
+  width: 7rem;
+  background-color: #00a3de;
+  margin: 1rem;
 }

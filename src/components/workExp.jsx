@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-
+import '../styles/workExp.css'
 
 function AddWorkExp({ index, workExperience, handleInputChange, deleteWork }) {
   return (
-    <div className="workExpForm" id={index}>
-      <h2>Work Experience {index}</h2>
+    <div className="form-group" id={index}>
+      <h2>Number: {index}</h2>
       <div className="form-group">
         <label htmlFor={`company-${index}`}>Company</label>
         <input
@@ -64,9 +64,10 @@ function AddWorkExp({ index, workExperience, handleInputChange, deleteWork }) {
         />
       </div>
 
-      <button type="button" className="btn btn-primary" onClick={deleteWork}>
-        Delete Work Experience
+      <button type='button' className='btnDelete' onClick={deleteWork}>    Delete Work Experience
       </button>
+
+      
     </div>
   );
 }
@@ -78,7 +79,7 @@ function AddWorkExp({ index, workExperience, handleInputChange, deleteWork }) {
 
       return (
           <div>
-            <h3>{index + 1}</h3>
+            <h3>Number: {index + 1}</h3>
               <p><strong>Company:</strong> {company}</p>
               <p><strong>Job Title:</strong> {jobTitle}</p>
               <p><strong>Job Description:</strong> {jobDescription}</p>

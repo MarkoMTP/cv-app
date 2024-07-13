@@ -1,3 +1,41 @@
 .cv {
-  padding: 5rem;
+  width: 100%;
+  padding: 3rem;
+}
+
+.cvCont {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.personal {
+  background-color: rgb(60, 146, 238);
+  padding: 1rem;
+}
+
+.education {
+  background-color: rgb(147, 226, 255);
+  padding: 1rem;
+}
+
+.work {
+  background-color: rgb(183, 243, 255);
+  margin: 0;
+  padding: 1rem;
+}
+
+.skills {
+  background-color: rgb(230, 246, 255);
+  padding: 1rem;
+  color: rgb(0, 0, 0);
+}
+
+.editBtn {
+  transform: translate(350%, -20%);
+  margin-top: 1rem;
+  width: 7rem;
+  background-color: rgb(212, 166, 255);
 }

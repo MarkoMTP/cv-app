@@ -1,10 +1,11 @@
+import '../styles/workExp.css'
 
 export function AddSkills({ index, skill, deleteWork, handleInputChange }) {
   return (
     <div className='form-group'>
       <label htmlFor={`skills-${index}`}>Skill {index}</label>
       <input type='text' id={`skills-${index}`} name='value' className='form-control' placeholder='e.g. JavaScript, React, Node.js' value={skill.value} onChange={handleInputChange} />
-      <button type='button' className='btn btn-primary' onClick={deleteWork}>Delete Skill</button>
+      <button type='button' className='btnDelete' onClick={deleteWork}>Delete Skill</button>
     </div>
   );
 }

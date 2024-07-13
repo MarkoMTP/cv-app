@@ -13,12 +13,14 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills, handle
 
     return (
       <div className="cv">
-        <h3>Personal Info</h3>
+       <div className='personal'>
+        <h2>Personal Info</h2>
         <p><strong>Full Name:</strong> {fullName}</p>
         <p><strong>Email:</strong> {email}</p>
         <p><strong>Phone Number:</strong> {phoneNumber}</p>
-
-        <h3>Education:</h3>
+        </div> 
+        <div className='education'>
+        <h2>Education:</h2>
           {educations.map((education, index) => (
             <DisplayEducation
             key={index}
@@ -29,8 +31,10 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills, handle
             ></DisplayEducation>
 
           ))}
+</div>
 
-        <h3>Work Experience:</h3>
+          <div className='work'>
+        <h2>Work Experience:</h2>
         {workExp.map((exp, index) => (
         <WorkExpDisplay
           key={index}
@@ -42,15 +46,15 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills, handle
           end={exp.endDate}
         />
       ))}
-
-
-      <h3>Skills:</h3>
+</div>
+      <div className='skills'>
+      <h2>Skills:</h2>
       {skills.map((skill, index) => (
         <SkillDisplay key={skill.id} index={index} skill={skill.value} />
       ))}
 
-
-        <button type='button' className='workExpBtn' onClick={handleEdits}>Edit</button>
+</div>
+        <button type='button' className='editBtn' onClick={handleEdits}>Edit</button>
 
        
       </div>

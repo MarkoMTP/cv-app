@@ -11,7 +11,7 @@ body {
 .editSect {
   position: absolute;
   transform: translate(10%, -50%);
-  border: 1px black solid;
+  border: 1px rgb(0, 0, 0) solid;
   width: 80%;
   overflow: scroll;
 
@@ -21,12 +21,4 @@ body {
 .container {
   display: flex;
   justify-content: space-around;
-}
-
-.cv {
-  border: black solid 1px;
-  width: 20%;
-  max-height: 50%;
-  margin: 3rem;
-  padding: 2rem;
 }

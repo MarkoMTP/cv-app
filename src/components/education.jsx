@@ -1,3 +1,4 @@
+import '../styles/workExp.css'
 
 
 function AddEducation ({ index, education, handleInputChange, deleteEducation }) {
@@ -16,7 +17,7 @@ return (
 <div className='form-group'>
 <label htmlFor={`gradYear-${index}`}>Graduation Year</label>
 <input type='number' id={`gradYear-${index}`} name='gradYear' className='form-control' value={education.gradYear} onChange={handleInputChange} />
-<button type='button' className='btn btn-primary' onClick={deleteEducation}>Delete Education</button>
+<button type='button' className='btnDelete' onClick={deleteEducation}>Delete Education</button>
 
 </div>
 </>
@@ -30,7 +31,7 @@ function DisplayEducation({school, degree, year, index}) {
 
 
         <>
-        <h3>Education {index + 1}</h3>
+        <h3>Number: {index + 1}</h3>
         <p><strong>School: </strong> {school}</p>
         <p><strong>Degree: </strong> {degree}</p>
         <p><strong>Graduation Year: </strong> {year}</p>

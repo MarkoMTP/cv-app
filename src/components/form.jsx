@@ -175,11 +175,12 @@ function FormForEdit() {
               />
             ))}
             <button type='button' className='workExpBtn' onClick={handleAddSkill}>Add skill</button>
-            <button type='button' className='workExpBtn' onClick={handleSubmit}>Submit</button>
+            <br />
+            <button type='button' className='submitBtn' onClick={handleSubmit}>Submit</button>
           </form>
         </div>
         : (
-          <div className='formEdit'>
+          <div className='cvCont'>
             <Cv
               fullName={fullName}
               email={email}
