@@ -1,10 +1,13 @@
 .cv {
   width: 100%;
   padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cvCont {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,8 +37,8 @@
 }
 
 .editBtn {
-  transform: translate(350%, -20%);
-  margin-top: 1rem;
-  width: 7rem;
+  margin-left: 3rem;
+  margin-top: 3rem;
+  width: 9rem;
   background-color: rgb(212, 166, 255);
 }

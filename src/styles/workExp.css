@@ -1,3 +1,5 @@
+/* styles/cv.css */
+
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +11,10 @@ label {
   margin-right: 2rem;
 }
 
+input {
+  background-color: white;
+}
+
 .formEdit {
   max-height: 50%;
   margin: 3rem;
@@ -16,7 +22,6 @@ label {
   width: 60%;
   border: solid rgb(250, 4, 4) 1px;
 }
-/* styles/cv.css */
 
 .container {
   width: 80%;
@@ -25,10 +30,18 @@ label {
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .formEdit {
   margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-group {
@@ -49,7 +62,7 @@ label {
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 button.workExpBtn {
@@ -72,8 +85,20 @@ button.btnDelete {
 }
 
 button.submitBtn {
-  transform: translate(250%, -20%);
   width: 7rem;
   background-color: #00a3de;
   margin: 1rem;
+  align-self: center;
+}
+
+@media (max-width: 850px) {
+  .formEdit {
+    border: 0;
+  }
+
+  button.submitBtn {
+    width: 9rem;
+    background-color: #00a3de;
+    margin-top: 3rem;
+  }
 }
