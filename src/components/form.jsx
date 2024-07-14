@@ -95,8 +95,8 @@ function FormForEdit() {
   return (
     <div className="container">
       {!isSubmitted ?
-        <div className='formEdit'>
-          <form>
+        
+          <form className="formEdit">
             <h2>Personal Information</h2>
             <div className='form-group'>
               <label htmlFor='firstName'>First Name</label>
@@ -178,9 +178,9 @@ function FormForEdit() {
             <br />
             <button type='button' className='submitBtn' onClick={handleSubmit}>Submit</button>
           </form>
-        </div>
+     
         : (
-          <div className='cvCont'>
+         
             <Cv
               fullName={fullName}
               email={email}
@@ -190,7 +190,6 @@ function FormForEdit() {
               skills={skills}
               handleEdits={handleEdit}
             />
-          </div>
         )}
     </div>
   );

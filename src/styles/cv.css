@@ -1,39 +1,55 @@
 .cv {
   width: 100%;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-.cvCont {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.personal,
+.education,
+.work,
+.skills {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
 }
 
 .personal {
   background-color: rgb(60, 146, 238);
-  padding: 1rem;
 }
 
 .education {
   background-color: rgb(147, 226, 255);
-  padding: 1rem;
 }
 
 .work {
   background-color: rgb(183, 243, 255);
-  margin: 0;
-  padding: 1rem;
 }
 
 .skills {
   background-color: rgb(230, 246, 255);
-  padding: 1rem;
   color: rgb(0, 0, 0);
+}
+
+.workExpBtn,
+.submitBtn {
+  margin: 1rem;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.workExpBtn:hover,
+.submitBtn:hover {
+  background-color: #0056b3;
 }
 
 .editBtn {
@@ -41,4 +57,25 @@
   margin-top: 3rem;
   width: 9rem;
   background-color: rgb(212, 166, 255);
+}
+
+@media (max-width: 850px) {
+  .editSect {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    font-size: 0.875rem;
+    padding: 1rem;
+  }
+
+  .formEdit,
+  .cvCont {
+    width: 100%;
+    height: 100%;
+  }
+
+  .cv {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
 }

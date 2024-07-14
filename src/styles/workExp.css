@@ -1,47 +1,11 @@
 /* styles/cv.css */
 
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-}
-
 label {
   margin-right: 2rem;
 }
 
 input {
   background-color: white;
-}
-
-.formEdit {
-  max-height: 50%;
-  margin: 3rem;
-  padding: 2rem;
-  width: 60%;
-  border: solid rgb(250, 4, 4) 1px;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.formEdit {
-  margin-bottom: 20px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .form-group {
@@ -57,7 +21,7 @@ input {
 
 .form-group input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #b44b4b;
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
@@ -93,6 +57,7 @@ button.submitBtn {
 
 @media (max-width: 850px) {
   .formEdit {
+    color: black;
     border: 0;
   }
 
@@ -100,5 +65,9 @@ button.submitBtn {
     width: 9rem;
     background-color: #00a3de;
     margin-top: 3rem;
+  }
+
+  .container {
+    width: 100%;
   }
 }

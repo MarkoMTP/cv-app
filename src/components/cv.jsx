@@ -14,13 +14,13 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills, handle
     return (
       <div className="cv">
        <div className='personal'>
-        <h2>Personal Info</h2>
+        <h3>Personal Info</h3>
         <p><strong>Full Name:</strong> {fullName}</p>
         <p><strong>Email:</strong> {email}</p>
         <p><strong>Phone Number:</strong> {phoneNumber}</p>
         </div> 
         <div className='education'>
-        <h2>Education:</h2>
+        <h3>Education:</h3>
           {educations.map((education, index) => (
             <DisplayEducation
             key={index}
@@ -34,7 +34,7 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills, handle
 </div>
 
           <div className='work'>
-        <h2>Work Experience:</h2>
+        <h3>Work Experience:</h3>
         {workExp.map((exp, index) => (
         <WorkExpDisplay
           key={index}
@@ -48,7 +48,7 @@ function Cv({ fullName, email, phoneNumber , educations, workExp, skills, handle
       ))}
 </div>
       <div className='skills'>
-      <h2>Skills:</h2>
+      <h3>Skills:</h3>
       {skills.map((skill, index) => (
         <SkillDisplay key={skill.id} index={index} skill={skill.value} />
       ))}

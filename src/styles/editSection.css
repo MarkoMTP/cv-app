@@ -1,24 +1,49 @@
-#root {
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Full height */
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+  background-color: #fffafa; /* Background color */
 }
 
 .editSect {
-  position: absolute;
-  transform: translate(10%, -50%);
-  border: 1px rgb(0, 0, 0) solid;
-  width: 80%;
-  overflow: scroll;
-
-  max-height: 80%;
+  width: 100%; /* Set to 60% width */
+  background-color: white;
+  padding: 4rem; /* Adjust padding */
 }
 
 .container {
+  width: 100%;
+  background-color: white;
+}
+
+.formEdit {
+  width: 100%; /* Full width of editSect */
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+@media (max-width: 850px) {
+  .editSect {
+    width: 100%; /* Full width on smaller screens */
+    max-height: 100vh; /* Allow full height */
+    font-size: 0.875rem; /* Lowered font size */
+    padding: 1rem;
+  }
+
+  .formEdit,
+  .cvCont {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+  }
 }
