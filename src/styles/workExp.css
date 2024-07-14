@@ -54,20 +54,3 @@ button.submitBtn {
   margin: 1rem;
   align-self: center;
 }
-
-@media (max-width: 850px) {
-  .formEdit {
-    color: black;
-    border: 0;
-  }
-
-  button.submitBtn {
-    width: 9rem;
-    background-color: #00a3de;
-    margin-top: 3rem;
-  }
-
-  .container {
-    width: 100%;
-  }
-}

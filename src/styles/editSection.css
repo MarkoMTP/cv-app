@@ -1,24 +1,25 @@
-:root {
-  width: 100vw;
-  height: 100vh;
+* {
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Full height */
-  width: 100%;
-
-  margin: 0;
-  padding: 0;
-  background-color: #fffafa; /* Background color */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  background-color: #ffffff; /* Background color */
+  height: 100vh; /* Ensure body takes full height */
 }
 
 .editSect {
-  width: 100%; /* Set to 60% width */
+  width: 100%; /* Set to 80% width */
+  max-height: 80vh; /* Limit height */
   background-color: white;
+  overflow-x: hidden; /* Prevent horizontal overflow */
   padding: 4rem; /* Adjust padding */
+  overflow-y: auto; /* Allow scrolling within the section if needed */
 }
 
 .container {
@@ -33,17 +34,21 @@ body {
   margin-top: 3rem;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 590px) {
+  body {
+    justify-content: flex-start; /* Align items to the top */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+
   .editSect {
-    width: 100%; /* Full width on smaller screens */
-    max-height: 100vh; /* Allow full height */
-    font-size: 0.875rem; /* Lowered font size */
-    padding: 1rem;
+    width: 90vw; /* Full width on smaller screens */
+    height: 100vh; /* Full height on smaller screens */
+    max-height: none; /* Remove max height */
+    padding: 2rem; /* Adjust padding for mobile */
   }
 
   .formEdit,
   .cvCont {
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
   }
 }
